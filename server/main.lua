@@ -3,13 +3,14 @@ local SelectedHorseId = {}
 local Horses
 
 CreateThread(function()
-	if GetCurrentResourceName() ~= "qbr-stable" then
-		print("^1=====================================")
-		print("^1SCRIPT NAME OTHER THAN ORIGINAL")
-		print("^1YOU SHOULD STOP SCRIPT")
-		print("^1CHANGE NAME TO: ^2qbr-stable^1")
-		print("^1=====================================^0")
+	if GetCurrentResourceName() ~= "lxr-stable" then
+	    print("=====================================")
+	    print("SCRIPT NAME OTHER THAN ORIGINAL")
+	    print("YOU SHOULD STOP SCRIPT")
+	    print("CHANGE NAME TO: lxr-stable")
+	    print("=====================================")
 	end
+
 end)
 
 RegisterNetEvent("qbr-stable:UpdateHorseComponents", function(components, idhorse, MyHorse_entity)
