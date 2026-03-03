@@ -1,4 +1,94 @@
+--[[
+    ██╗     ██╗  ██╗██████╗        ███████╗████████╗ █████╗ ██████╗ ██╗     ███████╗
+    ██║     ╚██╗██╔╝██╔══██╗       ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██║     ██╔════╝
+    ██║      ╚███╔╝ ██████╔╝█████╗ ███████╗   ██║   ███████║██████╔╝██║     █████╗  
+    ██║      ██╔██╗ ██╔══██╗╚════╝ ╚════██║   ██║   ██╔══██║██╔══██╗██║     ██╔══╝  
+    ███████╗██╔╝ ██╗██║  ██║       ███████║   ██║   ██║  ██║██████╔╝███████╗███████╗
+    ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝       ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
+
+    🐺 LXR Stable — Horse Purchasing & Management System
+
+    ═══════════════════════════════════════════════════════════════════════════════
+    SERVER INFORMATION
+    ═══════════════════════════════════════════════════════════════════════════════
+
+    Server:    The Land of Wolves 🐺
+    Developer: iBoss21 / The Lux Empire
+    Website:   https://www.wolves.land
+    Discord:   https://discord.gg/CrKcWdfd3A
+    Store:     https://theluxempire.tebex.io
+
+    ═══════════════════════════════════════════════════════════════════════════════
+
+    Framework Support:
+    - LXR Core  (Primary)
+    - RSG Core  (Primary)
+    - VORP Core (Supported)
+    - Standalone (Fallback)
+
+    Version: 1.0.0
+
+    © 2026 iBoss21 / The Lux Empire | wolves.land | All Rights Reserved
+]]
+
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- 🐺 RESOURCE NAME PROTECTION - RUNTIME CHECK
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+local REQUIRED_RESOURCE_NAME = "lxr-stable"
+local currentResourceName = GetCurrentResourceName()
+
+if currentResourceName ~= REQUIRED_RESOURCE_NAME then
+    error(string.format([[
+
+        ═══════════════════════════════════════════════════════════════════════════════
+        ❌ CRITICAL ERROR: RESOURCE NAME MISMATCH ❌
+        ═══════════════════════════════════════════════════════════════════════════════
+
+        Expected: %s
+        Got:      %s
+
+        Rename the resource folder to \%s\ to continue.
+
+        🐺 wolves.land - The Land of Wolves
+
+        ═══════════════════════════════════════════════════════════════════════════════
+
+    ]], REQUIRED_RESOURCE_NAME, currentResourceName, REQUIRED_RESOURCE_NAME))
+end
+
 Config = {}
+
+-- ████████████████████████████████████████████████████████████████████████████████
+-- ████████████████████████ SERVER BRANDING & INFO ████████████████████████
+-- ████████████████████████████████████████████████████████████████████████████████
+
+Config.ServerInfo = {
+    name      = 'The Land of Wolves 🐺',
+    developer = 'iBoss21 / The Lux Empire',
+    website   = 'https://www.wolves.land',
+    discord   = 'https://discord.gg/CrKcWdfd3A',
+    github    = 'https://github.com/iBoss21',
+    store     = 'https://theluxempire.tebex.io',
+}
+
+-- ████████████████████████████████████████████████████████████████████████████████
+-- ███████████████████████ FRAMEWORK CONFIGURATION ████████████████████████
+-- ████████████████████████████████████████████████████████████████████████████████
+
+--[[
+    Framework Priority:
+    1. LXR-Core  (Primary)
+    2. RSG-Core  (Primary)
+    3. VORP Core (Supported)
+    4. Standalone (Fallback)
+--]]
+
+Config.Framework = 'lxr-core' -- 'lxr-core' | 'rsg-core' | 'vorp_core' | 'standalone'
+
+-- ████████████████████████████████████████████████████████████████████████████████
+-- ██████████████████████████ STABLE CONFIGURATION ████████████████████████████
+-- ████████████████████████████████████████████████████████████████████████████████
 
 -- Max number of horses a player can own
 Config.MaxNumberOfHorses = 3
